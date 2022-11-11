@@ -1,0 +1,12 @@
+{:deps true
+ :builds
+ {:repro
+  {:target :browser
+   :devtools {:http-root ".", :http-port 9000}
+   :modules
+   {:main {:entries [demo.viewers]}}
+   :output-dir "public/js"
+   :asset-path "/js"
+   :compiler-options
+   {:infer-externs :auto
+    :optimizations :advanced}}}}
