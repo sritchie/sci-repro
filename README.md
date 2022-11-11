@@ -1,123 +1,120 @@
-# sicmutils-clerk
+# SCI Repro
 
-This is a very early stage set of demos and extensions for SICMUtils and Clerk
-backed by Mathbox. More later!
+Trigger:
 
-> If you find this work interesting, please consider sponsoring it via [Github
-> Sponsors](https://github.com/sponsors/sritchie). Thank you!
-
-## Links
-
-- [SICMUtils repository][SICMUTILS]
-- The [Road to Reality Newsletter](https://roadtoreality.substack.com/)
-- [Road to Reality Discord
-  Server](https://roadtoreality.substack.com/p/road-to-reality-discord-server?s=w)
-- [Clerk][CLERK], the notebook rendering engine used by SICMUtils
-- [In-progress executable version](https://github.com/sicmutils/fdg-book) of
-  _Functional Differential Geometry_ ([book link][FDG])
-- [In-progress executable version](https://github.com/sicmutils/sicm-book) of
-  Sussman and Wisdom's _Structure and Interpretation of Classical Mechanics_
-  ([book link][SICM])
-- [Mathbox](https://gitgud.io/unconed/mathbox) by @unconed
-- [mathbox-react](https://github.com/ChristopherChudzicki/mathbox-react) by
-  @ChristopherChudzicki
-
-## Demo Instructions
-
-The demos include both Clojure and Clojurescript code. Two environments means
-two build tools, so you'll need to have these installed:
-
-- [clj](https://clojure.org/guides/getting_started), for running the JVM side
-- [shadow-cljs](https://shadow-cljs.github.io/docs/UsersGuide.html#_installation)
-  for building the JS bundle used by the demos. This is a lovely system that
-  will automatically rebuild the bundle any time you save a cljs file.
-  - You'll also need [node.js](https://nodejs.org/en/download/package-manager/)
-    installed, to install the initial `npm` dependencies.
-
-When those are all set (the links include installation instructions),
-
-Clone the repository:
-
-```bash
-git clone git@github.com:sicmutils/sicmutils-clerk.git
-cd sicmutils-clerk
+```
+rm -rf .shadow-cljs && npm ci && npm run watch
 ```
 
-Generate the JS bundle for the demos by running the following commands in one
-terminal window:
+Output:
 
-```bash
-npm install
-shadow-cljs watch sicm-browser
+```
+shadow-cljs - config: /Users/sritchie/code/clj/repro/shadow-cljs.edn
+shadow-cljs - starting via "clojure"
+shadow-cljs - server version: 2.17.4 running at http://localhost:9630
+shadow-cljs - nREPL server started on port 55406
+shadow-cljs - watching build :repro
+[:repro] Configuring build.
+[:repro] Compiling ...
+[:repro] Build failure:
+------ ERROR -------------------------------------------------------------------
+ File: jar:file:/Users/sritchie/.m2/repository/org/babashka/sci/0.4.33/sci-0.4.33.jar!/sci/impl/namespaces.cljc:1477:20
+--------------------------------------------------------------------------------
+1474 |    'unchecked-subtract (copy-core-var unchecked-subtract)
+1475 |    'unchecked-negate-int (copy-core-var unchecked-negate-int)
+1476 |    'unchecked-inc (copy-core-var unchecked-inc)
+1477 |    'unchecked-char (copy-core-var unchecked-char)
+--------------------------^-----------------------------------------------------
+Encountered error when macroexpanding sci.impl.namespaces/copy-var.
+NullPointerException: Cannot invoke "clojure.lang.IFn.invoke(Object, Object)" because the return value of "clojure.lang.Var.getRawRoot()" is null
+	sci.impl.namespaces/copy-var (namespaces.cljc:91)
+	sci.impl.namespaces/copy-var (namespaces.cljc:73)
+	clojure.core/apply (core.clj:671)
+	clojure.core/apply (core.clj:662)
+	cljs.analyzer/macroexpand-1*/fn--2736 (analyzer.cljc:3928)
+	cljs.analyzer/macroexpand-1* (analyzer.cljc:3926)
+	cljs.analyzer/macroexpand-1* (analyzer.cljc:3913)
+	cljs.analyzer/macroexpand-1 (analyzer.cljc:3977)
+	cljs.analyzer/macroexpand-1 (analyzer.cljc:3973)
+	cljs.analyzer/analyze-seq (analyzer.cljc:4010)
+	cljs.analyzer/analyze-seq (analyzer.cljc:3990)
+	cljs.analyzer/analyze-form (analyzer.cljc:4199)
+	cljs.analyzer/analyze-form (analyzer.cljc:4196)
+	cljs.analyzer/analyze* (analyzer.cljc:4252)
+	cljs.analyzer/analyze* (analyzer.cljc:4244)
+	cljs.analyzer/analyze (analyzer.cljc:4272)
+	cljs.analyzer/analyze (analyzer.cljc:4255)
+	cljs.analyzer/analyze-seq (analyzer.cljc:4013)
+	cljs.analyzer/analyze-seq (analyzer.cljc:3990)
+	cljs.analyzer/analyze-form (analyzer.cljc:4199)
+	cljs.analyzer/analyze-form (analyzer.cljc:4196)
+	cljs.analyzer/analyze* (analyzer.cljc:4252)
+	cljs.analyzer/analyze* (analyzer.cljc:4244)
+	cljs.analyzer/analyze (analyzer.cljc:4272)
+	cljs.analyzer/analyze (analyzer.cljc:4255)
+	cljs.analyzer/analyze (analyzer.cljc:4265)
+	cljs.analyzer/analyze (analyzer.cljc:4255)
+	cljs.analyzer/analyze (analyzer.cljc:4263)
+	cljs.analyzer/analyze (analyzer.cljc:4255)
+	cljs.analyzer/analyze-map/fn--2750/fn--2751 (analyzer.cljc:4019)
+	clojure.core/mapv/fn--8468 (core.clj:6914)
+	clojure.core.protocols/iter-reduce (protocols.clj:49)
+	clojure.core.protocols/fn--8170 (protocols.clj:75)
+	clojure.core.protocols/fn--8170 (protocols.clj:75)
+	clojure.core.protocols/fn--8110/G--8105--8123 (protocols.clj:13)
+	clojure.core/reduce (core.clj:6830)
+	clojure.core/mapv (core.clj:6905)
+	clojure.core/mapv (core.clj:6905)
+	cljs.analyzer/analyze-map/fn--2750 (analyzer.cljc:4019)
+	cljs.analyzer/analyze-map (analyzer.cljc:4019)
+	cljs.analyzer/analyze-map (analyzer.cljc:4015)
+	cljs.analyzer/analyze-form (analyzer.cljc:4201)
+	cljs.analyzer/analyze-form (analyzer.cljc:4196)
+	cljs.analyzer/analyze* (analyzer.cljc:4252)
+	cljs.analyzer/analyze* (analyzer.cljc:4244)
+	cljs.analyzer/analyze (analyzer.cljc:4272)
+	cljs.analyzer/analyze (analyzer.cljc:4255)
+	cljs.analyzer/analyze (analyzer.cljc:4265)
+	cljs.analyzer/analyze (analyzer.cljc:4255)
+	cljs.analyzer/fn--2041/fn--2044 (analyzer.cljc:1933)
+	cljs.analyzer/fn--2041 (analyzer.cljc:1931)
+	cljs.analyzer/fn--2041 (analyzer.cljc:1854)
+	clojure.lang.MultiFn.invoke (MultiFn.java:252)
+	cljs.analyzer/analyze-seq* (analyzer.cljc:3983)
+	cljs.analyzer/analyze-seq* (analyzer.cljc:3981)
+	cljs.analyzer/analyze-seq*-wrap (analyzer.cljc:3988)
+	cljs.analyzer/analyze-seq*-wrap (analyzer.cljc:3986)
+	cljs.analyzer/analyze-seq (analyzer.cljc:4012)
+	cljs.analyzer/analyze-seq (analyzer.cljc:3990)
+	cljs.analyzer/analyze-form (analyzer.cljc:4199)
+	cljs.analyzer/analyze-form (analyzer.cljc:4196)
+	cljs.analyzer/analyze* (analyzer.cljc:4252)
+	cljs.analyzer/analyze* (analyzer.cljc:4244)
+	shadow.build.compiler/analyze/fn--40219 (compiler.clj:264)
+	shadow.build.compiler/analyze (compiler.clj:252)
+	shadow.build.compiler/analyze (compiler.clj:211)
+	shadow.build.compiler/analyze (compiler.clj:213)
+	shadow.build.compiler/analyze (compiler.clj:211)
+	shadow.build.compiler/default-analyze-cljs (compiler.clj:408)
+	shadow.build.compiler/default-analyze-cljs (compiler.clj:397)
+	clojure.core/partial/fn--5857 (core.clj:2629)
+	shadow.build.compiler/do-analyze-cljs-string (compiler.clj:318)
+	shadow.build.compiler/do-analyze-cljs-string (compiler.clj:278)
+	shadow.build.compiler/analyze-cljs-string/fn--40313 (compiler.clj:511)
+	shadow.build.compiler/analyze-cljs-string (compiler.clj:510)
+	shadow.build.compiler/analyze-cljs-string (compiler.clj:508)
+	shadow.build.compiler/do-compile-cljs-resource/fn--40341 (compiler.clj:626)
+	shadow.build.compiler/do-compile-cljs-resource (compiler.clj:607)
+	shadow.build.compiler/do-compile-cljs-resource (compiler.clj:565)
+	shadow.build.compiler/maybe-compile-cljs/fn--40444 (compiler.clj:958)
+
+--------------------------------------------------------------------------------
+1478 |    'unchecked-byte (copy-core-var unchecked-byte)
+1479 |    'unchecked-short (copy-core-var unchecked-short)
+1480 |    #?@(:cljs ['undefined? (copy-core-var undefined?)])
+1481 |    'underive (core-var 'underive hierarchies/underive* true)
+--------------------------------------------------------------------------------
 ```
 
-In another tab, start a Clojure repl with `clj`. This REPL has the full
-[SICMUtils
-API](https://cljdoc.org/d/sicmutils/sicmutils/CURRENT/api/sicmutils.env)
-available, so run some tests for fun:
-
-```clojure
-(->infix (((exp D) (literal-function 'f)) 'x))
-;;=> "f(x) + Df(x) + 1/2 D²f(x) + 1/6 D³f(x) + ..."
-```
-
-Next, start a webserver for Clerk, (the literate programming viewer) by running
-the following commands:
-
-```clojure
-;; point Clerk at our newly-generated JS bundle instead of its default:
-(swap! clerk-config/!resource->url
-       assoc
-       "/js/viewer.js"
-       "http://localhost:9000/out/main.js")
-
-;; Start the clerk server.
-(clerk/serve!
- {:browse? true :port 7777})
-```
-
-Now run `(clerk/show! <path/to/file.clj>)` to run any of the demos. Some
-examples to try:
-
-```clojure
-;; intro:
-(clerk/show! "src/demo.clj")
-
-;; Mathbox basics:
-(clerk/show! "src/cube_controls.clj")
-
-;; functions:
-(clerk/show! "src/functions.clj")
-(clerk/show! "src/polar.clj")
-
-;; symbolic physics:
-(clerk/show! "src/einstein.clj")
-
-;; vega, symbolic, double-pendulum
-(clerk/show! "src/pendulum.clj")
-
-;; mathbox physics:
-(clerk/show! "src/oscillator.clj")
-(clerk/show! "src/ellipsoid.clj")
-(clerk/show! "src/double_ellipsoid.clj")
-
-;; browser/client comms:
-(clerk/show! "src/live_oscillator.clj")
-```
-
-> NOTE: Clojure is far more pleasant if you can get a REPL running from inside
-> of your favorite code editor. I'll update this repo with links to a good
-> "Getting Started" resource; but please open an issue if you're having trouble
-> and I'll get you sorted.
-
-If you're running a REPL from inside your editor, see the [Clerk
-homepage](https://github.com/nextjournal/clerk#editor-workflow) for instructions
-on how to trigger `clerk-show!` with a key command, making dynamic interaction
-much more fun.
-
-Enjoy!
-
-[CLERK]: https://github.com/nextjournal/clerk
-[SICMUTILS]: https://github.com/sicmutils/sicmutils
-[SICM]: http://mitpress.mit.edu/books/structure-and-interpretation-classical-mechanics
-[FDG]: http://mitpress.mit.edu/books/functional-differential-geometry
+Now in `src/user.clj`, if you comment out the `:require` form and don't pull in
+`sci.core`, the build completes just fine.

@@ -1,2 +1,2 @@
 (ns user
-  (:require [sicmutils.env]))
+  (:require [sci.core]))
