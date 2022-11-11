@@ -1,5 +1,7 @@
 # SCI Repro
 
+This happens with SCI 0.4.33 and 0.5.34, but NOT with 0.3.5.
+
 Trigger:
 
 ```
