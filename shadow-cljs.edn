@@ -1,5 +1,6 @@
-{:deps   true
- :builds {:repro
-          {:target :browser
-           :modules {:main
-                     {:entries [repro.sci]}}}}}
+{:deps true
+ :builds
+ {:repro
+  {:target :browser
+   :modules {:main
+             {:entries [repro.sci]}}}}}
